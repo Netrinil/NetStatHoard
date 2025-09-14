@@ -8,9 +8,13 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 # Contents
 ####
 [General](#General)
+
 [Functions - UI](#functions---ui)
+
 [Functions - Game Data](#functions---game-data)
+
 [Functions - Custom Events](#functions---custom-events)
+
 [Functions - Maybe Custom?](#functions---maybe-custom)
 
 
