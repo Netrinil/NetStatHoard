@@ -9,13 +9,44 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 ####
 [General](#General)
 
-[Functions - UI](#functions---ui)
+[General Functions - UI](#functions---ui)
 
-[Functions - Game Data](#functions---game-data)
+[General Functions - Game Data](#functions---game-data)
 
-[Functions - Custom Events](#functions---custom-events)
+[General Functions - Custom Events](#functions---custom-events)
 
-[Functions - Maybe Custom?](#functions---maybe-custom)
+[General Functions - Maybe Custom?](#functions---maybe-custom)
+
+[General Events](#events)
+
+[Item Interaction](#item-interaction)
+
+[Quests](#quests)
+
+[Maps and Zones](#maps-and-zones)
+
+[Attunables](#attunables)
+
+[Perks](#perks)
+
+[Bounties](#bounties)
+
+[Item Hunt](#item-hunt-item-tracker)
+
+[Loot Database](#loot-database)
+
+[Autoloot](#autoloot)
+
+[Resource Bank](#resource-bank)
+
+[Leaderboard](#leaderboard)
+
+[Currency Tracker](#currency-tracker)
+
+[Transmog](#transmog)
+
+[Professions](#professions)
+
 
 
 # General
@@ -43,6 +74,7 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 |-------------------|----------------------------------|
 | MAX_ITEMID        | (current max itemId in the game) |
 
+
 ## Functions - UI
 ### Custom_CreateDropdown() -> 
 ### Custom_CreateDropdownMask() -> 
@@ -51,6 +83,7 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 ### Custom_GetAllCustomFrames() -> 
 ### Custom_UpdateDropdown() -> 
 ### Custom_UpdateDropdownMask() -> 
+
 
 ## Functions - Game Data
 ### Custom_GetEntityExtraDataFloat() -> 
@@ -73,10 +106,12 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 ### SetCustomGameData() ->
 ### SetCustomGameDataString() ->
 
-# Functions - Custom Events
+
+## Functions - Custom Events
 ### RaiseCustomEvent() ->
 ### RegisterForCustomEvent() ->
 ### UnregisterForCustomEvent() ->
+
 
 ## Functions - Maybe Custom?
 ### NotifyServer() ->
@@ -110,6 +145,15 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 ### Blizzard_CombatLog_EnableEvent() -> 
 ### Blizzard_CombatLog_GenerateFullEventList() -> 
 ### Blizzard_CombatLog_MenuHelper() -> 
+
+## Events
+Important! Before defining any event handler function, you should store any existing reference and make sure you call it first thing in your function. Otherwise, other addons depending on said event will break!
+### OnCustomGameData(typeId, id, prev, cur)
+Called at the start of sending data to the client
+### OnCustomGameDataFinish()
+Called after the transaction is finished and all data is available
+### OnCustomGameInit()
+Called after initializing the custom data the first time, for example after login
 
 
 
@@ -184,16 +228,6 @@ Original document by Imevul: https://github.com/imevul/SynastriaCoreLib/blob/mas
 ### Debug_SetEnableZoneItemCache() -> 
 ### OpenWarp() -> 
 
-
-
-## Events
-Important! Before defining any event handler function, you should store any existing reference and make sure you call it first thing in your function. Otherwise, other addons depending on said event will break!
-### OnCustomGameData(typeId, id, prev, cur)
-Called at the start of sending data to the client
-### OnCustomGameDataFinish()
-Called after the transaction is finished and all data is available
-### OnCustomGameInit()
-Called after initializing the custom data the first time, for example after login
 
 
 # Attunables
@@ -356,6 +390,7 @@ Do not use: Does nothing towards the server
 
 
 # Loot Database
+## Functions
 ### OpenLootDb() -> 
 ### CloseLootDb() -> 
 ### UpdateLootDbOptions() -> 
